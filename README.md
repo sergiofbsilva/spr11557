@@ -9,6 +9,6 @@
 ###Steps to Reproduce###
 1. `git clone https://github.com/sergiofbsilva/spr11557.git`
 2. `cd spr11557`
-3. `mvn clean package`
+3. `mvn clean install`
 4. `cd spr11557-webapp`
 5. `mvn tomcat7:run`
