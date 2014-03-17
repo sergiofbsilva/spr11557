@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.fenixedu</groupId>
+		<artifactId>web-app-project</artifactId>
+		<version>1.3.0</version>
+	</parent>
+
+	<artifactId>spr11557-webapp</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>SPR11557Webapp</name>
+
+
+	<properties>
+		<spring.version>4.0.2.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- spring logger -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.fenixedu</groupId>
+			<artifactId>spr11557-app</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- jaxrs container -->
+
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.4</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<path>/xpto</path>
+					<port>8080</port>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.fenixedu</groupId>
+				<artifactId>bennu-maven-plugin</artifactId>
+				<version>2.0.4</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+	<repositories>
+		<repository>
+			<id>fenix-ashes-maven-repository</id>
+			<url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+		</repository>
+	</repositories>
+</project>
